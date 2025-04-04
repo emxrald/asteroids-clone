@@ -9,7 +9,7 @@ Game is simple clone of classic [Asteroids Video Game](https://en.wikipedia.org/
 
 ## Technology Used
 - Python 3.12
-- Pygame library
+- Pygame 2.6.1
 
 # Instalation
 
