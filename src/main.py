@@ -5,8 +5,25 @@ from constants import *
 
 def main():
     print("Starting Asteroids..")
-    print(f"Screen width: {SCREEN_WIDTH}")
-    print(f"Screen height: {SCREEN_HEIGH}")
+
+    # NUm of modules initialized
+    ok, failed = pygame.init()
+    print(f"Loaded {ok} pygame modules")
+    print(f"Failed to load {failed} pygame modules")
+
+    screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+
+    color_black = pygame.Color(0,0,0)
+
+    # Main loop
+    while True:
+        # Handle events
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                return
+
+        screen.fill(color_black)
+        pygame.display.flip()
 
 
 if __name__ == "__main__":
