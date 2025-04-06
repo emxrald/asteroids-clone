@@ -13,7 +13,10 @@ def main():
 
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 
-    color_black = pygame.Color(0,0,0)
+    game_clock = pygame.time.Clock()
+    dt = 0
+
+    color_black = pygame.Color(0, 0, 0)
 
     # Main loop
     while True:
@@ -24,6 +27,9 @@ def main():
 
         screen.fill(color_black)
         pygame.display.flip()
+
+        # cap framerate to 60
+        dt = game_clock.tick(60) / 1000  # convert dt to seconds
 
 
 if __name__ == "__main__":
