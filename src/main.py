@@ -1,6 +1,7 @@
 import pygame
 
 from constants import *
+from player import Player
 
 
 def main():
@@ -17,6 +18,7 @@ def main():
     dt = 0
 
     color_black = pygame.Color(0, 0, 0)
+    player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
 
     # Main loop
     while True:
@@ -26,6 +28,9 @@ def main():
                 return
 
         screen.fill(color_black)
+
+        # Draw objects
+        player.draw(screen)
         pygame.display.flip()
 
         # cap framerate to 60
