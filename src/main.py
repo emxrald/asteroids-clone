@@ -29,9 +29,13 @@ def main():
 
         screen.fill(color_black)
 
+        # Update objects
+        player.update(dt)
+
         # Draw objects
         player.draw(screen)
         pygame.display.flip()
+
 
         # cap framerate to 60
         dt = game_clock.tick(60) / 1000  # convert dt to seconds
