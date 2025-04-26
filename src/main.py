@@ -2,6 +2,8 @@ import pygame
 
 from constants import *
 from player import Player
+from asteroid import Asteroid
+from asteroidfield import AsteroidField
 
 
 def main():
@@ -19,11 +21,18 @@ def main():
 
     updatable = pygame.sprite.Group()
     drawable = pygame.sprite.Group()
+    asteroids = pygame.sprite.Group()
+    
+
+    # Set sprite gorups for whole object classes
     Player.containers = (updatable, drawable)
+    Asteroid.containers = (asteroids, updatable, drawable)
+    AsteroidField.containers = (updatable)
 
     color_black = pygame.Color(0, 0, 0)
-    
+
     player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
+    asteroid_field = AsteroidField()
 
     # Main loop
     while True:
@@ -40,11 +49,9 @@ def main():
         # Draw objects
         for item in drawable:
             item.draw(screen)
-        
 
         # player.draw(screen)
         pygame.display.flip()
-
 
         # cap framerate to 60
         dt = game_clock.tick(60) / 1000  # convert dt to seconds
